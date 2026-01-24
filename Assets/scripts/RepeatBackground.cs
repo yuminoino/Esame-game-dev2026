@@ -3,11 +3,13 @@ using UnityEngine;
 public class LoopBackground2D : MonoBehaviour
 {
     public float speed = 3f;
-    public Transform otherBg;
+ 
 
     private SpriteRenderer sr;
     private float width;
     private float halfWidth;
+    public Transform otherBg;
+
 
     void Start()
     {
