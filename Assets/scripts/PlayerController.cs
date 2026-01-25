@@ -1,17 +1,31 @@
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class PlayerJump : MonoBehaviour
 {
+    public float jumpForce = 10f;
+    private Rigidbody2D playerRb;
+    private bool isOnGround = true;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-       
+        playerRb = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-      
+        if (Input.GetKeyDown(KeyCode.Space) && isOnGround)
+        {
+            playerRb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+            isOnGround = false;
+        }
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            isOnGround = true;
+        }
     }
 }
+
