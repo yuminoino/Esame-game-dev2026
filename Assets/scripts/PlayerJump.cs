@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PlayerJump : MonoBehaviour
 {
-    public float jumpForce = 10f;
+    public float jumpForce = 15f;
     public int maxJumpCount = 2;  // how many jumps the player can do before touching the ground again
 
     private Rigidbody2D playerRb;
