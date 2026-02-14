@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class LoopBackground2D : MonoBehaviour
 {
-    public float speed = 3f;
+    public float speed = 10f;
  
 
     private SpriteRenderer sr;
