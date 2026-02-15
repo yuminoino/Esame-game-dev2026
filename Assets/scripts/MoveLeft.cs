@@ -12,9 +12,15 @@ public class MoveLeft : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector3.left * Time.deltaTime * speed);
+        if (GameManager.instance.isGameOver)
+        {
+            return;
+        }
 
+        transform.Translate(Vector3.left * Time.deltaTime * speed);
+        
         float leftEdge = Camera.main.ViewportToWorldPoint(new Vector3(0f, 0f, 0f)).x;
+        
         if (transform.position.x < leftEdge)
         {
             Destroy(gameObject);

@@ -3,19 +3,17 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
-
-    public bool isGameOver = false; 
-
+    public bool isGameOver;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+     isGameOver = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+      
     }
     void Awake()
     {
@@ -25,6 +23,6 @@ public class GameManager : MonoBehaviour
     {
         isGameOver = true;
         Debug.Log("GAME OVER");
-        Time.timeScale = 0; // pause the game
+        
     }
 }
