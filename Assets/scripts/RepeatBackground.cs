@@ -10,7 +10,7 @@ public class LoopBackground2D : MonoBehaviour
     private float halfWidth;
     public Transform otherBg;
 
-
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         sr = GetComponent<SpriteRenderer>();
@@ -18,8 +18,14 @@ public class LoopBackground2D : MonoBehaviour
         halfWidth = sr.bounds.extents.x; // = width/2
     }
 
+    // Update is called once per frame
     void Update()
     {
+        if (GameManager.instance.isGameOver)
+        {
+            return;
+        }
+
         // Move left
         transform.Translate(Vector3.left * speed * Time.deltaTime);
 

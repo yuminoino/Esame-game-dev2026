@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class PlayerJump : MonoBehaviour
 {
     public float jumpForce = 15f;
     public int maxJumpCount = 2;  // how many jumps the player can do before touching the ground again
@@ -8,8 +8,8 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D playerRb;
     private AudioSource playerAudio;
     private int jumpCount = 0;
+    
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         playerRb = GetComponent<Rigidbody2D>();
@@ -17,14 +17,12 @@ public class PlayerController : MonoBehaviour
         playerAudio = GetComponent<AudioSource>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space) && jumpCount < maxJumpCount)
         {
             playerRb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
             jumpCount++;
-
             playerAudio.PlayOneShot(playerAudio.clip);
 
         }

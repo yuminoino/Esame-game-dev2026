@@ -7,6 +7,7 @@ public class SpawnManager : MonoBehaviour
 
     private Vector3 spawnPos;
 
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         spawnPos = transform.position;
@@ -14,8 +15,17 @@ public class SpawnManager : MonoBehaviour
         InvokeRepeating("SpawnRandomObstacle", 1f, spawnInterval);
     }
 
+    // Update is called once per frame
+    void Update()
+    {
+       
+    }
+
     void SpawnRandomObstacle()
     {
+        if (GameManager.instance.isGameOver)
+            return;
+
         int randomIndex = Random.Range(0, obstaclePrefabs.Length);
 
         Instantiate(obstaclePrefabs[randomIndex],

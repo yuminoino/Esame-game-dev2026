@@ -13,5 +13,11 @@ public class MoveLeft : MonoBehaviour
     void Update()
     {
         transform.Translate(Vector3.left * Time.deltaTime * speed);
+
+        float leftEdge = Camera.main.ViewportToWorldPoint(new Vector3(0f, 0f, 0f)).x;
+        if (transform.position.x < leftEdge)
+        {
+            Destroy(gameObject);
+        }
     }
 }
