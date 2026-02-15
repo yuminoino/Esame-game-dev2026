@@ -322,6 +322,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isGameOver: 0
+  backgroundMusic: {fileID: 238348110}
 --- !u!4 &210325731
 Transform:
   m_ObjectHideFlags: 0
