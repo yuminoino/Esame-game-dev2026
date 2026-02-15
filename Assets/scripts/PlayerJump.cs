@@ -6,12 +6,15 @@ public class PlayerJump : MonoBehaviour
     public int maxJumpCount = 2;  // how many jumps the player can do before touching the ground again
 
     private Rigidbody2D playerRb;
+    private AudioSource playerAudio;
     private int jumpCount = 0;
-    private bool isOnGround = true;
+    
 
     void Start()
     {
         playerRb = GetComponent<Rigidbody2D>();
+
+        playerAudio = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -20,7 +23,8 @@ public class PlayerJump : MonoBehaviour
         {
             playerRb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
             jumpCount++;
-            isOnGround = false;
+            playerAudio.PlayOneShot(playerAudio.clip);
+
         }
     }
 
@@ -28,7 +32,7 @@ public class PlayerJump : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Ground"))
         {
-            isOnGround = true;
+
             jumpCount = 0; // reset jump count when player touches the ground
         }
     }
