@@ -26,10 +26,10 @@ public class PlayerJump : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space) && jumpCount < maxJumpCount) // if the space key is pressed and the player has not exceeded the maximum jump count
         {
-            playerRb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-            jumpCount++; 
+            playerRb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse); // apply an upward force to the player's Rigidbody2D component to make the player jump
+            jumpCount++;
             
-            playerAudio.PlayOneShot(playerAudio.clip); 
+            playerAudio.PlayOneShot(playerAudio.clip);
 
         }
     }
