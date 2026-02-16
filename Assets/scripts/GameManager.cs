@@ -11,10 +11,14 @@ public class GameManager : MonoBehaviour
     public GameObject particles;
     public GameObject player;
 
+    public GameObject gameOverImage;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
      isGameOver = false;
+        if (gameOverImage != null) gameOverImage.SetActive(false);
+
     }
 
     // Update is called once per frame
@@ -44,7 +48,10 @@ public class GameManager : MonoBehaviour
         if (particles != null)
          particles.SetActive(true);
 
-           if (player != null)
-            player.SetActive(false);
+         if (player != null)
+          player.SetActive(false);
+
+         if (gameOverImage != null)
+          gameOverImage.SetActive(true);
     }
 }
