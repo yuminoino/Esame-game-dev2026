@@ -7,8 +7,8 @@ public class PlayerJump : MonoBehaviour
 
     private Rigidbody2D playerRb;
     private AudioSource playerAudio;
-    private int jumpCount = 0;
-    
+    private int jumpCount = 0; // current jump count, reset to 0 when player touches the ground, incremented each time player jumps
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
