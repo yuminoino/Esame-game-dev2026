@@ -371,7 +371,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: 7e34469e252cf3f4788fa66bf36553dd, type: 3}
   m_Resource: {fileID: 8300000, guid: 7e34469e252cf3f4788fa66bf36553dd, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.5
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -1069,7 +1069,7 @@ GameObject:
   - component: {fileID: 963776140}
   - component: {fileID: 963776139}
   m_Layer: 0
-  m_Name: walk_0
+  m_Name: OtherPg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
