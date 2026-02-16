@@ -21,15 +21,15 @@ public class PlayerJump : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GameManager.instance.isGameOver)
-            return;
-        
-        if (Input.GetKeyDown(KeyCode.Space) && jumpCount < maxJumpCount)
+        if (GameManager.instance.isGameOver) // if the game is over, do not allow the player to jump
+            return; // this will prevent the player from jumping after the game is over, which could lead to unintended behavior
+
+        if (Input.GetKeyDown(KeyCode.Space) && jumpCount < maxJumpCount) // if the space key is pressed and the player has not exceeded the maximum jump count
         {
             playerRb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-            jumpCount++;
+            jumpCount++; 
             
-            playerAudio.PlayOneShot(playerAudio.clip);
+            playerAudio.PlayOneShot(playerAudio.clip); 
 
         }
     }

@@ -19,8 +19,8 @@ public class MoveLeft : MonoBehaviour
 
         transform.Translate(Vector3.left * Time.deltaTime * speed);
         
-        float leftEdge = Camera.main.ViewportToWorldPoint(new Vector3(0f, 0f, 0f)).x;
-        
+        float leftEdge = Camera.main.ViewportToWorldPoint(new Vector3(0f, 0f, 0f)).x; // get the x coordinate of the left edge of the screen in world space, which will be used to determine when to destroy the obstacle
+
         if (transform.position.x < leftEdge)
         {
             Destroy(gameObject);

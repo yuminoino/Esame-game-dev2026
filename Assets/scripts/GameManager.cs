@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager instance;
+    public static GameManager instance; // singleton instance of the GameManager, allows other scripts to access it easily
     public bool isGameOver;
 
     public AudioSource backgroundMusic;
@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
      isGameOver = false;
-        if (gameOverImage != null) gameOverImage.SetActive(false);
+        if (gameOverImage != null) gameOverImage.SetActive(false); 
 
     }
 
@@ -30,13 +30,14 @@ public class GameManager : MonoBehaviour
         }
 
     }
+    // Awake is called when the script instance is being loaded, before any Start functions are called. This is where we set up the singleton instance of the GameManager.
     void Awake()
     {
-        instance = this;
+        instance = this; // set the singleton instance to this instance of the GameManager, allowing other scripts to access it through GameManager.instance
     }
     public void GameOver()
     {
-        if (isGameOver) return;
+        if (isGameOver) return; // if the game is already over, do not execute the game over logic again, which could lead to unintended behavior
 
         isGameOver = true;
         Debug.Log("GAME OVER");
