@@ -8,6 +8,9 @@ public class GameManager : MonoBehaviour
 
     public AudioSource backgroundMusic;
 
+    public GameObject particles;
+    public GameObject player;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -29,13 +32,19 @@ public class GameManager : MonoBehaviour
     }
     public void GameOver()
     {
+        if (isGameOver) return;
+
         isGameOver = true;
         Debug.Log("GAME OVER");
 
         if (backgroundMusic != null)
-        {
-            backgroundMusic.Stop();
-        }
 
+         backgroundMusic.Stop();
+        
+        if (particles != null)
+         particles.SetActive(true);
+
+           if (player != null)
+            player.SetActive(false);
     }
 }
