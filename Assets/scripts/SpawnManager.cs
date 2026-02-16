@@ -4,7 +4,7 @@ public class SpawnManager : MonoBehaviour
 {
     public GameObject[] obstaclePrefabs; // array of obstacle prefabs to spawn
     public float spawnInterval = 2f;     // how often to spawn obstacles (in seconds)
-    public float startDelay = 1f;
+    public float startDelay = 1f;          // delay before the first obstacle is spawned (in seconds)
     private Vector3 spawnPos;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -30,6 +30,6 @@ public class SpawnManager : MonoBehaviour
 
         Instantiate(obstaclePrefabs[randomIndex], // instantiate the selected obstacle prefab at the spawn position with its default rotation
                     spawnPos,
-                    obstaclePrefabs[randomIndex].transform.rotation);
+                    obstaclePrefabs[randomIndex].transform.rotation); // this will create a new instance of the selected obstacle prefab at the specified spawn position, allowing it to start moving left across the screen
     }
 }

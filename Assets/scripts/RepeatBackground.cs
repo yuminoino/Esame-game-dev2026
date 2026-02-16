@@ -5,16 +5,16 @@ public class LoopBackground2D : MonoBehaviour
     public float speed = 10f;
  
 
-    private SpriteRenderer sr;
-    private float width;
-    private float halfWidth;
-    public Transform otherBg;
+    private SpriteRenderer sr; // reference to the SpriteRenderer component of the background, which will be used to get the width of the background sprite for looping purposes
+    private float width; // width of the background sprite, calculated from the SpriteRenderer's bounds, which will be used to determine when to loop the background
+    private float halfWidth; // half of the width of the background sprite, calculated from the SpriteRenderer's bounds, which will be used to position the background correctly when looping
+    public Transform otherBg; 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         sr = GetComponent<SpriteRenderer>();
-        width = sr.bounds.size.x;
+        width = sr.bounds.size.x; // get the width of the background sprite from the SpriteRenderer's bounds, which will be used to determine when to loop the background
         halfWidth = sr.bounds.extents.x; // = width/2
     }
 
