@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
-    public GameObject[] weakEnemyPrefabs;
-    public GameObject strongEnemyPrefab;
+    public GameObject[] weakEnemyPrefabs; // array of weak enemy prefabs to choose from when spawning weak enemies, can be set in the Unity editor for flexibility
+    public GameObject strongEnemyPrefab; // prefab for the strong enemy, can be set in the Unity editor for flexibility
 
     public float spawnInterval = 2f;
     public float startDelay = 1f;
@@ -15,14 +15,14 @@ public class SpawnManager : MonoBehaviour
     public float strongMusicPitch = 1.5f;
 
     private Vector3 spawnPos;
-    private int spawnedCount = 0;
-    private bool strongSpawnedOnce = false;
+    private int spawnedCount = 0; // keeps track of how many enemies have been spawned, used to determine when to start spawning strong enemies and when to speed up the spawn rate
+    private bool strongSpawnedOnce = false; // flag to track if a strong enemy has been spawned at least once, used to determine when to increase the music pitch
 
 
     void Start()
     {
         spawnPos = transform.position;
-        InvokeRepeating("SpawnEnemy", startDelay, spawnInterval);
+        InvokeRepeating("SpawnEnemy", startDelay, spawnInterval); // start invoking the SpawnEnemy method repeatedly after a delay of startDelay seconds, and then every spawnInterval seconds thereafter
     }
 
     void SpawnEnemy()
