@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class ScoreTrigger : MonoBehaviour
 {
+    public int scoreValue = 1; // the amount of score to add when the player enters the trigger, can be set in the Unity editor for flexibility
     private bool hasScored = false; // flag to ensure the score is only incremented once per trigger
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -10,7 +11,7 @@ public class ScoreTrigger : MonoBehaviour
         {
            hasScored = true;
            
-           GameManager.instance.AddScore(1); // call the AddScore method in the GameManager to update the score display, ensuring that the UI reflects the new score after incrementing
+           GameManager.instance.AddScore(scoreValue); 
         }
     }
 

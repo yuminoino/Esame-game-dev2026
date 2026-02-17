@@ -8,6 +8,7 @@ public class PlayerJump : MonoBehaviour
     private Rigidbody2D playerRb;
     private AudioSource playerAudio;
     private int jumpCount = 0; // current jump count, reset to 0 when player touches the ground, incremented each time player jumps
+    private Animator animator;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -16,6 +17,8 @@ public class PlayerJump : MonoBehaviour
         playerRb = GetComponent<Rigidbody2D>();
 
         playerAudio = GetComponent<AudioSource>();
+
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -31,6 +34,9 @@ public class PlayerJump : MonoBehaviour
             
             playerAudio.PlayOneShot(playerAudio.clip);
 
+            if (animator != null)
+                animator.enabled = false; // disable the animator when the player jumps
+
         }
     }
 
@@ -40,6 +46,8 @@ public class PlayerJump : MonoBehaviour
         {
            
             jumpCount = 0; // reset jump count when player touches the ground
+                if (animator != null)
+                    animator.enabled = true; // re-enable the animator when the player touches the ground
         }
         if (collision.gameObject.CompareTag("Obstacle"))
         { 
