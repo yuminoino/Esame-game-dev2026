@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -13,12 +14,17 @@ public class GameManager : MonoBehaviour
 
     public GameObject gameOverImage;
 
+    public TextMeshProUGUI scoreText;
+    private int score;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
      isGameOver = false;
         if (gameOverImage != null) gameOverImage.SetActive(false); 
+        score = 0;
 
+        if (scoreText != null) scoreText.text = "Score: 0";
     }
 
     // Update is called once per frame
@@ -54,5 +60,13 @@ public class GameManager : MonoBehaviour
 
          if (gameOverImage != null)
           gameOverImage.SetActive(true);
+    }
+    public void AddScore(int amount)
+    {
+        if (isGameOver) return; // if the game is over, do not add to the score, which could lead to unintended behavior
+        score += amount; 
+        
+        if (scoreText != null)
+            scoreText.text = "Score: " + score;
     }
 }
